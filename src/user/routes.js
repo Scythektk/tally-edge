@@ -4,5 +4,7 @@ const controller = require('./controller');
 const router = Router();
 
 router.get('/', controller.getUsers);
+router.get('/', controller.getAccountDetails);
+router.get('/', controller.getConsent);
 
 module.exports = router;
