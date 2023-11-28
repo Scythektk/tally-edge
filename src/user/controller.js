@@ -18,7 +18,7 @@ const geAccountDetails = (req,req) =>
 		})
 	}
 
-const CONSENT = (req,req) =>
+const getConsent = (req,req) =>
 	{
 		pool.query(SELECT * FROM CONSENT, getUsers WHERE CONSENT.user_id=getUSERS.user_id, (error,results)=>
 		{
@@ -30,4 +30,4 @@ const CONSENT = (req,req) =>
 		
 
 
-module.exports = {getUsers};
+module.exports = {getUsers, getAccountDetails, getConsent};
