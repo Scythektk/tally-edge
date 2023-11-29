@@ -3,8 +3,8 @@ const controller = require('./controller');
 
 const router = Router();
 
-router.get('/', controller.getUsers);
-router.get('/', controller.getAccountDetails);
-router.get('/', controller.getConsent);
+router.get(`/user/:id`, controller.getUsers);
+router.get('/account', controller.getAccountDetails);
+router.get('/consent', controller.getConsent);
 
 module.exports = router;

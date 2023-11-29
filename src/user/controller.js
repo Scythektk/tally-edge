@@ -2,25 +2,27 @@ const pool = require('../../db');
 
 const getUsers = (req, res) => 
 	{
-		pool.query(SELECT * FROM USER WHERE user_name="Alice Smith", (error, results)=>
+		console.log(req);
+		res.send(200, req.id);
+		pool.query(`SELECT * FROM USER WHERE user_id=${req.id}`, (error, results)=>
 		{
 			if (error) throw error;
 			res.status(200).json(results.rows);
 		})
 	}
 
-const geAccountDetails = (req,req) =>
+const getAccountDetails = (req,res) =>
 	{
-		pool.query(SELECT * FROM ACCOUNT, (error,results)=>
+		pool.query(`SELECT * FROM ACCOUNT`, (error,results)=>
 		{
 			if (error) throw error;
 			res.status(200).json(results.rows);
 		})
 	}
 
-const getConsent = (req,req) =>
+const getConsent = (req,res) =>
 	{
-		pool.query(SELECT * FROM CONSENT, getUsers WHERE CONSENT.user_id=getUSERS.user_id, (error,results)=>
+		pool.query(`SELECT * FROM CONSENT, USER WHERE CONSENT.user_id=USER.user_id`, (error,results)=>
 		{
 			if (error) throw error;
 			res.status(200).json(results.rows);
@@ -28,6 +30,4 @@ const getConsent = (req,req) =>
 	}
 			
 		
-
-
 module.exports = {getUsers, getAccountDetails, getConsent};
